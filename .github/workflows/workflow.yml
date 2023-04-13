@@ -21,13 +21,12 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        python3.10 -m venv env
-        source env/bin/activate
+
         pip install -r requirements.txt
 
     - name: Build and Run Flask App
       run: |
-        source env/bin/activate
+
         export FLASK_APP=app.py
         export FLASK_ENV=development # Set this to "development" if you want to run in development mode
         flask run --host=0.0.0.0 --port=443
@@ -37,4 +36,4 @@ jobs:
       with:
         github_token: ${{ secrets.github_token }}
         publish_branch: master
-        publish_dir: ./build # Replace with the directory where your app's static files are stored
+        publish_dir: ./static # Replace with the directory where your app's static files are stored
