@@ -1,15 +1,13 @@
-name: Deploy Flask App
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - master
 
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
@@ -21,19 +19,17 @@ jobs:
 
     - name: Install Dependencies
       run: |
+        python3.10 -m pip install -r requirements.txt
 
-        pip install -r requirements.txt
-
-    - name: Build and Run Flask App
+    - name: Build Flask App
       run: |
-
         export FLASK_APP=app.py
         export FLASK_ENV=development # Set this to "development" if you want to run in development mode
-        flask run --host=0.0.0.0 --port=443
+        python3.10 -m flask run --host=0.0.0.0 --port=443
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.github_token }}
-        publish_branch: master
-        publish_dir: ./static # Replace with the directory where your app's static files are stored
+        publish_dir: .
+        publish_branch: gh-pages
