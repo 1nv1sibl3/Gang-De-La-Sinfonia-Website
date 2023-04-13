@@ -1,0 +1,39 @@
+name: Deploy Flask App
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        python3.10 -m venv env
+        source env/bin/activate
+        pip install -r requirements.txt
+
+    - name: Build and Run Flask App
+      run: |
+        source env/bin/activate
+        export FLASK_APP=app.py
+        export FLASK_ENV=production # Set this to "development" if you want to run in development mode
+        flask run --host=0.0.0.0 --port=443
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./static # Replace with the directory where your app's static files are stored
