@@ -1,10 +1,12 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
+def hello_world():
     return 'Hello, World!'
 
 if __name__ == '__main__':
-    app.run()
+    if os.environ.get('FLASK_ENV') == 'development':
+        app.run()
