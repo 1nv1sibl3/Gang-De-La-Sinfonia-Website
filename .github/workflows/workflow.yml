@@ -20,7 +20,7 @@ jobs:
         python3.9 -m pip install -r requirements.txt
     - name: Build
       run: |
-        python3.9 build.py
+        python3.9 app.py
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
