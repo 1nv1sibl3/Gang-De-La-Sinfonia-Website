@@ -1,29 +1,32 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        python-version: 3.9
+        node-version: '18'
+
     - name: Install dependencies
-      run: |
-        python3.9 -m pip install --upgrade pip
-        python3.9 -m pip install -r requirements.txt
-    - name: Build
-      run: |
-        export FLASK_ENV=development
-        python3.9 app.py
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v4
+      run: npm ci
+
+    - name: Build the website
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         branch: master
-        folder: static
+        folder: app
+        token: ${{ secrets.GITHUB_TOKEN }}
