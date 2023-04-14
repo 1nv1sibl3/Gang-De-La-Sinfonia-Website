@@ -10,7 +10,6 @@ app.static_url_path = 'assets/'
 
 @app.route('/')
 def home():
-    print(os.system('ls'))
     return render_template('index.html')
 
 
