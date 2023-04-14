@@ -1,3 +1,5 @@
+<!-- Made by Om Honrao aka Inv1s1bl3 -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,8 +13,8 @@
     <meta property="og:description" content="Gang de la Sinfonia (GDLS or SYGG) is an organization that participates in CTF competitions and other activities. Our team, known as the Symphony Gang, is dedicated to promoting cybersecurity awareness and education."/>
     <meta property="og:image" content="images/GDLS_LOGO.png"/>
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="icon" type="image/x-icon" href="images/GDLS_LOGO.png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/GDLS_LOGO.png') }}" />
   </head>
 
   <body>
@@ -45,6 +47,6 @@
     </footer>
 
   </body>
-  <script src="js/home.js"></script>
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 
 </html>

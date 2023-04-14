@@ -1,3 +1,5 @@
+// Made by Om Honrao aka Inv1s1bl3 
+
 // JavaScript for hover menu functionality
 var menuToggle = document.getElementById('menuToggle');
 var hoverMenu = document.getElementById('hoverMenu');
