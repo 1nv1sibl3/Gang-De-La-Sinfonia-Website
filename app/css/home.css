@@ -9,6 +9,9 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
   }
+  body.active {
+    overflow: hidden;
+  }
   
   .container {
     width: 80%;
@@ -37,4 +40,156 @@ body {
     font-size: 14px;
     color: #fff;
   }
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
   
+  nav {
+    background-color: transparent;
+    padding: 10px;
+  }
+  
+  .menu-toggle {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .menu-icon,
+  .menu-icon:before,
+  .menu-icon:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-icon:before {
+    top: -8px;
+  }
+  
+  .menu-icon:after {
+    bottom: -8px;
+  }
+  
+/* Hover menu */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 101;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 25%; /* Update width to 25% */
+    padding: 50px;
+    background-color: #464646;
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+  }
+  
+  .menu a {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: #fc6b4a;
+  }
+  
+  /* Show/hide hover menu */
+  .menu-toggle:hover .menu-icon,
+  .menu-toggle:hover .menu-icon:before,
+  .menu-toggle:hover .menu-icon:after {
+    background-color: #fc6b4a;
+  }
+  
+  .menu-toggle:hover .menu-icon:before {
+    top: 0;
+  }
+  
+  .menu-toggle:hover .menu-icon:after {
+    bottom: 0;
+  }
+  
+  .menu-toggle.open .menu-icon {
+    background-color: transparent;
+  }
+  
+  .menu-toggle.open .menu-icon:before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  
+  .menu-toggle.open .menu-icon:after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+  
+  .menu-overlay.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none; /* Add this line */
+    z-index: 9999;
+  }
+  
+  .menu.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+/* CSS for close button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Add opacity property */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add opacity transition */
+  }
+  
+/* Additional CSS for active state */
+.close-btn.active {
+    right: 20px; /* Update right value to 20px to move the close button back inside the hover menu */
+    opacity: 1; /* Update opacity to 1 to make the close button visible */
+  }
