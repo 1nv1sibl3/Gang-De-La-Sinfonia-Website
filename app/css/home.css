@@ -1,0 +1,40 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,500,600,700,900');
+
+
+body {
+    background-color: #232323;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  footer {
+    background-color: #464646;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 4em 0 2em 0 ;
+  }
+  
+  footer p {
+    font-size: 14px;
+    color: #fff;
+  }
+  
