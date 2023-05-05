@@ -1,0 +1,108 @@
+<!-- Made by Om Honrao aka Inv1s1bl3 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gang de la Sinfonia</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta name="description" content="Gang de la Sinfonia " />
+    <meta
+      name="author"
+      content="Gang de la Sinfonia (GDLS or SYGG) is an organization that participates in CTF competitions and other activities. Our team, known as the Symphony Gang, is dedicated to promoting cybersecurity awareness and education."
+    />
+    <meta
+      name="keywords"
+      content="Gang de la Sinfonia, cybersecurity, CTF, GDLS, SYGG, Symphony Gang"
+    />
+    <meta property="og:title" content="Gang de la Sinfonia | Home" />
+    <meta
+      property="og:description"
+      content="Gang de la Sinfonia (GDLS or SYGG) is an organization that participates in CTF competitions and other activities. Our team, known as the Symphony Gang, is dedicated to promoting cybersecurity awareness and education."
+    />
+    <meta property="og:image" content="images/GDLS_LOGO.png" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/GDLS_LOGO.png') }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/4d593d4e7a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="navbar-item">
+        <a href="/">
+          <p class="navbar-item-name">Home</p>
+        </a>
+      </div>
+      <div class="navbar-item">
+        <a href="members">
+          <p class="navbar-item-name">Members Page</p>
+        </a>
+      </div>
+      <div class="navbar-item">
+        <a href="achievement">
+          <p class="navbar-item-name">Achievements Page</p>
+        </a>
+      </div>
+      <div class="navbar-item">
+        <a href="write_up">
+          <p class="navbar-item-name">Write Ups Page</p>
+        </a>
+      </div>
+    </nav>
+    <hr />
+    {% block content %}{% endblock %}
+    <div class="footer">
+      <div class="contact">
+        <form action="" method="post">
+          <div class="contact-item" id="email">
+            <input
+              type="text"
+              name="email"
+              class="input-item"
+              id="email-item"
+              placeholder="Your Business E-mail"
+              size="35"
+            />
+          </div>
+          <div class="contact-item">
+            <input type="submit" id="send" class="input-item" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="social-media">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+        <div class="icon-item">
+          <i class="fa-brands fa-discord"></i>
+        </div>
+      </div>
+    </div>
+    <div class="law">
+      <hr />
+      <div class="law-item">
+        <p class="law-item-name">Privacy Policy</p>
+      </div>
+      <div class="law-item">
+        <p class="law-item-name">Terms and Condition</p>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+  </body>
+</html>
